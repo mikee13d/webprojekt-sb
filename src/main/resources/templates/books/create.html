@@ -1,0 +1,18 @@
+<h1>Create Book</h1>
+
+<form action="/books/create" method="post" th:object="${book}">
+
+    <input th:field="*{title}" placeholder="Title"/>
+    <div th:errors="*{title}"></div>
+
+    <input th:field="*{description}" placeholder="Description"/>
+
+    <input type="date" th:field="*{publishedDate}"/>
+
+    <input th:field="*{author}" placeholder="Author"/>
+    <input th:field="*{isbn}" placeholder="ISBN"/>
+
+    <button>Create</button>
+</form>
+
+<a href="/books">Back</a>

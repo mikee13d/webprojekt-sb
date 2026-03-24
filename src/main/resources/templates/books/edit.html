@@ -1,0 +1,16 @@
+<h1>Edit Book</h1>
+
+<form action="/books/edit" method="post" th:object="${book}">
+
+    <input type="hidden" th:field="*{id}"/>
+
+    <input th:field="*{title}"/>
+    <input th:field="*{description}"/>
+
+    <input type="date" th:field="*{publishedDate}"/>
+
+    <input th:field="*{author}"/>
+    <input th:field="*{isbn}"/>
+
+    <button>Update</button>
+</form>
