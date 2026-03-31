@@ -28,7 +28,7 @@ public class BookService {
     }
 
     public void create(CreateBookDTO dto) {
-        if ("test".equalsIgnoreCase(dto.title)) {
+        if ("test".equalsIgnoreCase(dto.getTitle())) {
             throw new IllegalArgumentException("Title cannot be 'test'");
         }
         repo.save(mapper.toEntity(dto));
@@ -40,7 +40,7 @@ public class BookService {
     }
 
     public void update(UpdateBookDTO dto) {
-        Book b = get(dto.id);
+        Book b = get(dto.getId());
         mapper.update(dto, b);
         repo.save(b);
     }

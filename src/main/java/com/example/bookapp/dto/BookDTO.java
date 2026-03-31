@@ -7,7 +7,7 @@ public class BookDTO {
     public Long id;
     public String title;
     public String description;
-    public LocalDate publishedDate;
+    public String publishedDate;
     public String author;
     public String isbn;
 }

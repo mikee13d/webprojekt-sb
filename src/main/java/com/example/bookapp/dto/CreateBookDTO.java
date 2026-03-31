@@ -1,21 +1,58 @@
 package com.example.bookapp.dto;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.PastOrPresent;
-
-import java.time.LocalDate;
 
 public class CreateBookDTO {
 
     @NotBlank
-    public String title;
+    private String title;
 
-    public String description;
+    @NotBlank
+    private String author;
 
-    @PastOrPresent
-    public LocalDate publishedDate;
+    private String description;
+    private String isbn;
+    private String publishedDate;
 
-    public String author;
+    // ✅ GETTERS & SETTERS (REQUIRED)
 
-    public String isbn;
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public String getPublishedDate() {
+        return publishedDate;
+    }
+
+    public void setPublishedDate(String publishedDate) {
+        this.publishedDate = publishedDate;
+    }
 }

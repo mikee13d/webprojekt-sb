@@ -45,19 +45,23 @@ public class BookController {
         Book b = service.get(id);
 
         UpdateBookDTO dto = new UpdateBookDTO();
-        dto.id = b.getId();
-        dto.title = b.getTitle();
-        dto.description = b.getDescription();
-        dto.publishedDate = b.getPublishedDate();
-        dto.author = b.getAuthor();
-        dto.isbn = b.getIsbn();
+        dto.setId(b.getId());
+        dto.setTitle(b.getTitle());
+        dto.setDescription(b.getDescription());
+        dto.setPublishedDate(b.getPublishedDate());
+        dto.setAuthor(b.getAuthor());
+        dto.setIsbn(b.getIsbn());
 
         model.addAttribute("book", dto);
         return "edit";
     }
 
     @PostMapping("/edit")
-    public String update(@ModelAttribute UpdateBookDTO dto) {
+    public String update(@Valid @ModelAttribute("book") UpdateBookDTO dto,
+                         BindingResult result) {
+
+        if (result.hasErrors()) return "edit";
+
         service.update(dto);
         return "redirect:/books";
     }
